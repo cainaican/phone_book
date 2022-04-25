@@ -2,6 +2,8 @@ import { Request, Response } from "express"
 import asyncHandler from 'express-async-handler'
 import { pool } from "../utils/db"
 
+
+
 type Contact = {
   id: number,
   name: string,
@@ -9,16 +11,14 @@ type Contact = {
 }
 //GET all contacts
 export const getContacts = asyncHandler(async (req: Request, res: Response): Promise<any> => {
-
-  const client = await pool.connect()
-  const sql = 'SELECT * FROM contacts;'
-
-  const { rows } = await client.query(sql)
-  const contacts: Contact[] = rows
   
-  client.release();
+    const client = await pool.connect()
+    const sql = 'SELECT * FROM contacts;'
 
-  return res.status(200).json(contacts)
+    const { rows }  = await client.query(sql)
+    const contacts: Contact[] = rows
+
+    return res.status(200).json(contacts)
 })
 
 

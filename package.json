@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "phone book",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "scripts": {    
+    "init": "cd client && npm i && cd ../server && npm i",
+    "setup": "cd server && npm run setup",
+    "build": "cd server && npm run build",
+    "start": "cd server && npm run start"
   },
   "author": "musindinislam1@yandex.ru",
   "license": "ISC"
